@@ -7,7 +7,11 @@ function appendVideo(stream) {
     document.body.appendChild(video);
     video.play();
 }
-navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
+const constraints = {
+    video: true,
+    // audio: true // オーディオを追加すると期待する挙動となる
+};
+navigator.mediaDevices.getUserMedia(constraints).then(stream => {
     console.log(`streamId:${stream.id}`);
     appendVideo(stream);
     const peer = new Peer(myId, {
