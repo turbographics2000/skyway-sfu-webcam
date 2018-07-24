@@ -7,7 +7,7 @@ function appendVideo(stream) {
     document.body.appendChild(video);
     video.play();
 }
-navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
     console.log(`streamId:${stream.id}`);
     appendVideo(stream);
     const peer = new Peer(myId, {
