@@ -1,14 +1,7 @@
 const myId = (new MediaStream).id;
 console.log(`myId:${myId}`);
 let stream = null;
-navigator.mediaDevices.getUserMedia({
-    video: {
-        mandatory: {
-            chromeMediaSource: 'desktop',
-            chromeMediaSourceId: streamId
-        }
-    }
-}).then(stream => {
+navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
     console.log(`streamId:${stream.id}`);
     localView.srcObject = stream;
     const peer = new Peer(myId, {
@@ -24,4 +17,4 @@ navigator.mediaDevices.getUserMedia({
     });
 }).catch(err => {
     console.error(err);
-})
+});
