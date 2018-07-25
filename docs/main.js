@@ -15,7 +15,7 @@ navigator.mediaDevices.getUserMedia(constraints).then(stream => {
     console.log(`streamId:${stream.id}`);
     appendVideo(stream);
     const peer = new Peer(myId, {
-        key: '6a8609a9-a70c-4493-bd51-b6a5f17370c1' // 1時間映像のみ送受信 (3人目接続しすぐに3人目を切断)
+        key: 'f93a17e4-0eac-4aaf-bb57-f3bb73f3b643' // 1時間映像のみ送受信 (3人目接続しすぐに3人目を切断)
     });
     peer.on('open', id => {
         myIdDisp.textContent = id;
